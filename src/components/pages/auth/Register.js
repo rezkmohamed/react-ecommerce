@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import classes from "./Register.module.css";
 
 const Register = () => {
-
     return(
         <div className={classes.container}>
                     <div className={classes['form-box']}>

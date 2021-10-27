@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Login.module.css";
+import { useHistory } from "react-router";
 
 const Login = () => {
+    const history = useHistory();
+
+    const onLogin = () => {
+        history.push("/");
+    }
 
     return(
         <div className={classes.container}>
@@ -28,7 +34,7 @@ const Login = () => {
             </div>
             <input type="text" className={classes['form-control']} placeholder="Password" />
             </div>
-            <button type="button" className={`${classes.button} ${classes['btn-secondary']} ${classes['btn-block']}`}>LOGIN</button>
+            <button type="button" className={`${classes.button} ${classes['btn-secondary']} ${classes['btn-block']}`} onClick={onLogin}>LOGIN</button>
             <div className={classes.message}>
             {/* <div><input type="checkbox" /> Remember ME</div> */}
             <div><Link to="/">Reset password</Link></div>
