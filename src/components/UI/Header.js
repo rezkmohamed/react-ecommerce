@@ -1,8 +1,12 @@
 import React from 'react';
 import classes from "./Header.module.css";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = (props) => {
+    const isLoggedIn = useSelector((state) => state.auth.value.isLoggedIn);
+
+
     return (
             <header className={classes.container}>
                 <div className={classes['nav-bar']}>
@@ -29,7 +33,15 @@ const Header = (props) => {
                         </div>
                         <div className={classes['nav-right']}>
                             <div className={classes['nav-tools']}>
-                                <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Log in</Link>
+                                {
+                                    !isLoggedIn &&
+                                    <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Log in</Link>
+                                }
+                                {
+                                    isLoggedIn &&
+                                    <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Log out</Link>
+                                }
+
                                 <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Carrello</Link>
                                 <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>About</Link>
                             </div>
