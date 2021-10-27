@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Login.module.css";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../../services/auth-slice";
 
 const Login = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const email = useRef();
+    const psw = useRef();
 
-    const onLogin = () => {
+    const onLogin = (event) => {
+        event.preventDefault();
+        const loginData = {
+            email: email.current.value,
+            psw: psw.current.value,
+            isVendor: true,
+            products: []
+        }
+        dispatch(authActions.login(loginData));
         history.push("/");
     }
 
@@ -21,18 +34,18 @@ const Login = () => {
                         </div>
                     </div>
                     <div className={classes['body-form']}>
-                        <form>
+            <form onSubmit={onLogin}>
                         <div className={`${classes['inpyut-group']} ${classes['mb-3']}`}>
                 <div className={classes['input-group-prepend']}>
                 <span className={classes['input-group-text']}><i className="fa fa-user"></i></span>
             </div>
-            <input type="text" className={classes['form-control']} placeholder="Email" />
+            <input type="text" className={classes['form-control']} ref={email} placeholder="Email" />
             </div>
             <div className={`${classes['input-group']} ${classes['mb-3']}`}>
                 <div className={classes['input-group-prepend']}>
                 <span className={classes['input-group-text']}><i className="fa fa-lock"></i></span>
             </div>
-            <input type="text" className={classes['form-control']} placeholder="Password" />
+            <input type="text" className={classes['form-control']} ref={psw} placeholder="Password" />
             </div>
             <button type="button" className={`${classes.button} ${classes['btn-secondary']} ${classes['btn-block']}`} onClick={onLogin}>LOGIN</button>
             <div className={classes.message}>
@@ -42,14 +55,9 @@ const Login = () => {
 
             </div>
                 </form>
-                        {/* <div className={classes.social}>
-                        <a href="#"><i className="fab fa-facebook"></i></a>
-                        <a href="#"><i className="fab fa-twitter-square"></i></a>
-                        <a href="#"><i className="fab fa-google"></i></a>
-                        </div> */}
-                    </div>
-                    </div>
-        </div>)
+            </div>
+        </div>
+    </div>)
 
 }
 
