@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from "./Header.module.css";
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
     return (
@@ -8,14 +9,14 @@ const Header = (props) => {
                     <div className={classes['nav-belt']}>
                         <div class={classes['nav-left']}>
                             <div className={classes['nav-logo']}>
-                                <a href="/">FakeAzon</a>
+                                <Link to="/">FakeAzon</Link>
                             </div>
                         </div>
                         <div class={classes['nav-fill']}>
                             <div className={classes['nav-search']}>
                                 <form className={classes['nav-search-bar-form']}>
                                     <div className={classes['nav-left']}>
-                                        <a href="">Tutto</a>
+                                        <Link to="">Tutto</Link>
                                     </div>
                                     <div className={classes['nav-fill']}>
                                         <input type="text" />
@@ -28,9 +29,9 @@ const Header = (props) => {
                         </div>
                         <div className={classes['nav-right']}>
                             <div className={classes['nav-tools']}>
-                                <a href="/">Log in</a>
-                                <a href="/">Carrello</a>
-                                <a href="/">About</a>
+                                <Link to="/">Log in</Link>
+                                <Link to="/">Carrello</Link>
+                                <Link to="/">About</Link>
                             </div>
                         </div>
                     </div>
