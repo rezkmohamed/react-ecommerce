@@ -6,15 +6,19 @@ import DetailProduct from './components/pages/DetailProduct';
 import Login from './components/pages/auth/Login';
 import Register from './components/pages/auth/Register';
 import AddNewProduct from './components/pages/AddNewProduct';
+import { Provider } from 'react-redux';
+import store from './services/index-redux';
 
 const App = () => {
   return (
     <React.Fragment>
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/detail" exact component={DetailProduct} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/register" exact component={Register} />
-      <Route path="/newprod" exact component={AddNewProduct} />
+      <Provider store={store}> 
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/detail" exact component={DetailProduct} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/newprod" exact component={AddNewProduct} />
+      </Provider>
     </React.Fragment>
   );
 }
