@@ -4,6 +4,24 @@ import Header from '../UI/Header';
 import classes from "./DetailProduct.module.css";
 
 const DetailProduct = (props) => {
+    const DUMMY_DATA = {
+        main_img: "https://i.ibb.co/xYpFY0T/item1.jpg",
+        other_imgs: [
+            "https://i.ibb.co/VJf6fXm/thumb1.jpg",
+            "https://i.ibb.co/Jt5zc58/thumb2.jpg",
+            "https://i.ibb.co/Yf9LMpy/thumb3.jpg",
+            "https://i.ibb.co/60hPGy2/thumb4.jpg"
+        ]
+    };
+
+
+    const switchPicture = (img) => {
+        let mainPic = document.querySelector("#main-img");
+        mainPic.setAttribute('src', img);
+    }
+
+
+
     return (
         <React.Fragment>
             <Header />
@@ -11,7 +29,17 @@ const DetailProduct = (props) => {
 
             <div className={classes['item-image-parent']}>
                 <div className={classes['item-list-vertical']}>
-                    <div className={classes['thumb-box']}>
+                    {
+                        DUMMY_DATA.other_imgs.map(img => {
+                            return(
+                                <div className={classes['thumb-box']} onClick={() => {switchPicture(img)}}>
+                                    <img src={img} alt="thumbnail" />
+                                </div>
+            
+                            )
+                        })
+                    }
+                    {/* <div className={classes['thumb-box']} onClick={() => {switchPicture()}}>
                         <img src="https://i.ibb.co/VJf6fXm/thumb1.jpg" alt="thumbnail" />
                     </div>
                     <div className={classes['thumb-box']}>
@@ -22,11 +50,11 @@ const DetailProduct = (props) => {
                     </div>
                     <div className={classes['thumb-box']}>
                         <img src="https://i.ibb.co/60hPGy2/thumb4.jpg" alt="thumbnail" />
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className={classes['item-image-main']}>
-                    <img src="https://i.ibb.co/xYpFY0T/item1.jpg" alt="default" />
+                    <img id="main-img" src={DUMMY_DATA.main_img} alt="default" />
                 </div>
             </div>
 
