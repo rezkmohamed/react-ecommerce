@@ -8,7 +8,6 @@ const LandingPage = (props) => {
         <div>
             <Header />
             <Gallery />
-
             <Footer />
         </div>
     );
