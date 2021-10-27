@@ -11,6 +11,15 @@
     margin-top: 40px;
 }
 
+.title {
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: large;
+}
+
 .note {
     color: gray;
     margin: 8px 0;
@@ -28,4 +37,8 @@ input.active:invalid {
     color: red;
     font-size: 12px;
     margin-top: 5px;
+}
+
+.btn {
+    margin-top: 13px;
 }

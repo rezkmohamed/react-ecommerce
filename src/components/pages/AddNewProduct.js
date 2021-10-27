@@ -8,6 +8,7 @@ const AddNewProduct = (props) => {
             <div className={`container ${classes.container}`}>
             <form>
                 <div className={`form-group ${classes['form-group']}`}>
+                <p className={classes.title}>AGGIUNGI UN NUOVO PRODOTTO DA VENDERE</p>
                 <label id="usernameLabel">Nome prodotto</label>
                 <input className="form-control"
                     type="email"
@@ -31,7 +32,7 @@ const AddNewProduct = (props) => {
                     required />
                 <div className="error" id="passwordConfirmError" />
                 </div>
-                <button className="btn btn-primary">Aggiungi prodotto</button>
+                <button className={`btn btn-primary ${classes.btn}`}>Aggiungi prodotto</button>
             </form>
             </div>
             <Footer />
