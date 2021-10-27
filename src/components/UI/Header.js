@@ -1,11 +1,19 @@
 import React from 'react';
 import classes from "./Header.module.css";
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../../services/auth-slice';
+import { useHistory } from 'react-router';
 
-const Header = (props) => {
-    const isLoggedIn = useSelector((state) => state.auth.value.isLoggedIn);
+const Header = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const isLoggedIn = useSelector((state) => state.auth.value.profileData);
 
+    const onLogout = () => {
+        dispatch(authActions.logout());
+        history.push("/login");
+    }
 
     return (
             <header className={classes.container}>
@@ -35,11 +43,13 @@ const Header = (props) => {
                             <div className={classes['nav-tools']}>
                                 {
                                     !isLoggedIn &&
-                                    <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Log in</Link>
+                                    <Link to="#" disabled style={{ color: 'inherit', textDecoration: 'inherit' }}>Log in</Link>
                                 }
                                 {
                                     isLoggedIn &&
-                                    <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Log out</Link>
+                                    <Link to="#"
+                                        style={{ color: 'inherit', textDecoration: 'inherit' }}
+                                        onClick={onLogout}>Log out</Link>
                                 }
 
                                 <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Carrello</Link>
