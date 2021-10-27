@@ -1,10 +1,12 @@
 import React from 'react';
 import Footer from '../UI/Footer';
+import Header from '../UI/Header';
 import classes from "./AddNewProduct.module.css";
 
 const AddNewProduct = (props) => {
     return (
         <React.Fragment>
+            <Header />
             <div className={`container ${classes.container}`}>
             <form>
                 <div className={`form-group ${classes['form-group']}`}>

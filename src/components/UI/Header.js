@@ -21,7 +21,7 @@ const Header = () => {
                     <div className={classes['nav-belt']}>
                         <div class={classes['nav-left']}>
                             <div className={classes['nav-logo']}>
-                                <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>FakeAzon</Link>
+                                <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>FakeAzon</Link>
                             </div>
                         </div>
                         <div class={classes['nav-fill']}>
@@ -43,17 +43,17 @@ const Header = () => {
                             <div className={classes['nav-tools']}>
                                 {
                                     !isLoggedIn &&
-                                    <Link to="#" disabled style={{ color: 'inherit', textDecoration: 'inherit' }}>Log in</Link>
+                                    <Link to="#" disabled style={{ color: 'white', textDecoration: 'inherit' }}>Log in</Link>
                                 }
                                 {
                                     isLoggedIn &&
                                     <Link to="#"
-                                        style={{ color: 'inherit', textDecoration: 'inherit' }}
+                                        style={{ color: 'white', textDecoration: 'inherit' }}
                                         onClick={onLogout}>Log out</Link>
                                 }
 
-                                <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>Carrello</Link>
-                                <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit' }}>About</Link>
+                                <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>Carrello</Link>
+                                <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>About</Link>
                             </div>
                         </div>
                     </div>
