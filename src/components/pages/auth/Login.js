@@ -2,9 +2,12 @@ import React from "react";
 import classes from "./Login.module.css";
 
 const Login = () => {
+
     return(
         <div className={classes.container}>
                     <div className={classes['form-box']}>
+                        <p>FakeAzon</p>
+                        <p>FakeAzon è un sito di e-commerce in cui puoi trovare qualsiasi tipo di prodotto fake.</p>
                     <div className={classes['header-form']}>
                         <h4 className={`${classes['text-primary']} ${classes['text-center']}`}><i className="fa fa-user-circle" style={{fontSize:"110px"}}></i></h4>
                         <div className={classes['image']}>
@@ -28,6 +31,8 @@ const Login = () => {
             <div className={classes.message}>
             {/* <div><input type="checkbox" /> Remember ME</div> */}
             <div><a href="#">Reset password</a></div>
+            <div><a href="#">Registrati!!!!</a></div>
+
             </div>
                 </form>
                         <div className={classes.social}>
