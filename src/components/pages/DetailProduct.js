@@ -34,9 +34,7 @@ const DetailProduct = (props) => {
                             return(
                                 <div className={classes['thumb-box']} onClick={() => {switchPicture(img)}}>
                                     <img src={img} alt="thumbnail" />
-                                </div>
-            
-                            )
+                                </div>)
                         })
                     }
                     {/* <div className={classes['thumb-box']} onClick={() => {switchPicture()}}>
