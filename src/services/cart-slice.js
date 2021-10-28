@@ -11,7 +11,7 @@ const cartSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         addProductToCart: (state, action) => {
-
+            
         },
         removeProductFromCart: (state, action) => {
 

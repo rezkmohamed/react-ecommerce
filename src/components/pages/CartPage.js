@@ -23,27 +23,27 @@ const CartPage = (props) => {
                     </thead>
                     <tbody>
                     <tr className={classes.productitm}>
-                        <td><img src="https://senetsoftware.com/Ross/PNG/PNG/brown-2.png" className={classes.thumb} /></td>
+                        <td><img src="https://senetsoftware.com/Ross/PNG/PNG/brown-2.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>Design Bundle Package</td>
                     </tr>
                     <tr className={classes.productitm}>
-                        <td><img src="https://i.imgur.com/RkzoXzZ.png" className={classes.thumb} /></td>
+                        <td><img src="https://i.imgur.com/RkzoXzZ.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>Stuff on my Cat: The Book</td>
                     </tr>
                     <tr className={classes.productitm}>
-                        <td><img src="https://i.imgur.com/vZ26Uwy.png" className={classes.thumb} /></td>
+                        <td><img src="https://i.imgur.com/vZ26Uwy.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>SpongeBob's First 100 Episodes</td>
                     </tr>
                     <tr className={classes.productitm}>
-                        <td><img src="https://i.imgur.com/tEdRnz4.png" className={classes.thumb} /></td>
+                        <td><img src="https://i.imgur.com/tEdRnz4.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>JavaScript &amp; jQuery: The Missing Manual</td>
                     </tr>
                     <tr className={classes.productitm}>
-                        <td><img src="https://i.imgur.com/tEdRnz4.png" className={classes.thumb} /></td>
+                        <td><img src="https://i.imgur.com/tEdRnz4.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>JavaScript &amp; jQuery: The Missing Manual</td>
                     </tr>

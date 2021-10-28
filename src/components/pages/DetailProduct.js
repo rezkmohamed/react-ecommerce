@@ -37,19 +37,6 @@ const DetailProduct = (props) => {
                                 </div>)
                         })
                     }
-                    {/* <div className={classes['thumb-box']} onClick={() => {switchPicture()}}>
-                        <img src="https://i.ibb.co/VJf6fXm/thumb1.jpg" alt="thumbnail" />
-                    </div>
-                    <div className={classes['thumb-box']}>
-                        <img src="https://i.ibb.co/Jt5zc58/thumb2.jpg" alt="thumbnail" />
-                    </div>
-                    <div className={classes['thumb-box']}>
-                        <img src="https://i.ibb.co/Yf9LMpy/thumb3.jpg" alt="thumbnail" />
-                    </div>
-                    <div className={classes['thumb-box']}>
-                        <img src="https://i.ibb.co/60hPGy2/thumb4.jpg" alt="thumbnail" />
-                    </div> */}
-
                 </div>
                 <div className={classes['item-image-main']}>
                     <img id="main-img" src={DUMMY_DATA.main_img} alt="default" />
@@ -85,6 +72,10 @@ const DetailProduct = (props) => {
                             <option>XL</option>
                             <option>2XL</option>
                         </select>
+                    </div>
+
+                    <div className={`btn btn-primary ${classes.btn}`}>
+                        aggiungi al carrello
                     </div>
 
                     <div className={classes.description}>

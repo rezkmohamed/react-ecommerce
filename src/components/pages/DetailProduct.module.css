@@ -12,7 +12,14 @@ header {
 .product-info {
     display: flex;
     width: 95%;
-    margin: 0 auto
+    margin: 0 auto;
+    margin-bottom: 13px;
+}
+
+.btn {
+    margin-top: 13px;
+    margin-bottom: 13px;
+    justify-content: center;
 }
 
 .item-image-parent {
