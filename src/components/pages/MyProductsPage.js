@@ -3,11 +3,11 @@ import classes from "./MyProductsPage.module.css";
 import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
 
-
-const MyProductsPage = (props) => {
-    const MY_DUMMY_PRODUCTS = [];
+const MyProductsPage = () => {
     const history = useHistory();
+    const products = useSelector((state) => state.auth.value.profileData.products);
 
     const goToAddProd = () => {
         history.push("/newprod");
@@ -18,21 +18,21 @@ const MyProductsPage = (props) => {
             <Header />
             <div className={classes.w}>
                 <header className="title">
-                <h1>Il tuo carrello</h1>
+                <h1>I tuoi prodotti</h1>
                 </header>
                 <div className={classes.page}>
                 <table className={classes.cart}>
                     <thead>
                     <tr>
                         <th className={classes.first}>Photo</th>
-                        <th className={classes.second}>Qty</th>
+                        <th className={classes.second}>Qty Availabe</th>
                         <th className={classes.third}>Name</th>
                         <th className={classes.fifth}>Price</th>
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        MY_DUMMY_PRODUCTS.map(product => {
+                        products.map(product => {
                             return (
                                 <tr className={classes.productitm}>
                                     <td><img src={product.main_img} className={classes.thumb} alt="img cart"/></td>
@@ -49,11 +49,6 @@ const MyProductsPage = (props) => {
             <div className="text-center" style={{'marginBottom': '13px'}}>
                 <button className="btn btn-primary" onClick={goToAddProd}>AGGIUNGI PRODOTTO</button>
             </div>
-
-
-
-
-
             <Footer />
         </React.Fragment>
     );
