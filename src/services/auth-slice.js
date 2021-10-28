@@ -8,7 +8,7 @@ const initialStateValue = {
         isVendor: false,
         products: [],
         cart: []
-    }
+    },
 };
 
 const authSlice = createSlice({
@@ -26,6 +26,18 @@ const authSlice = createSlice({
             state.value.profileData = initialStateValue;
             localStorage.removeItem('profileData');
             console.log('logged out.');
+        },
+        register: (state, action) => {
+            const profiles = JSON.parse(localStorage.getItem('profiles'));
+
+            const checkIfEmailExists = profiles.filter((profile) => profile.email === action.payload.email);
+            if(checkIfEmailExists){
+                window.alert('email already exists!!!');
+                return;
+            }
+            profiles.push(action.payload);
+            localStorage.setItem('profiles', profiles);
+            window.alert('PROFILE REGISTRATED. PROCEED WITH LOGIN');
         }
     }
 });
