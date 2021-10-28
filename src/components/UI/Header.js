@@ -13,7 +13,7 @@ const Header = () => {
     const onLogout = () => {
         dispatch(authActions.logout());
         history.push("/login");
-    }
+    };
 
     return (
             <header className={classes.container}>

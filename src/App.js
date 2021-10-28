@@ -9,6 +9,7 @@ import AddNewProduct from './components/pages/AddNewProduct';
 import { Provider } from 'react-redux';
 import store from './services/index-redux';
 import CartPage from './components/pages/CartPage';
+import SearchPage from './components/pages/SearchPage';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/register" exact component={Register} />
         <Route path="/newprod" exact component={AddNewProduct} />
         <Route path="/cart" exact component={CartPage} />
+        <Route path="/search" exact component={SearchPage} />
       </Provider>
     </React.Fragment>
   );
