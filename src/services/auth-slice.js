@@ -16,10 +16,16 @@ const authSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         login: (state, action) => {
-            state.value.isLoggedIn = true;
-            state.value.profileData = action.payload;
-            localStorage.setItem('profileData', JSON.stringify(state.value.profileData));
-            console.log(action.payload);
+            const profiles = JSON.parse(localStorage.getItem('profiles'));
+            const checkProfile = profiles.filter(profile => profile.email === action.payload.email && profile.psw === action.payload.psw);
+            if(checkProfile){
+                state.value.isLoggedIn = true;
+                state.value.profileData = action.payload;
+                localStorage.setItem('profileData', JSON.stringify(state.value.profileData));
+                console.log(action.payload);    
+                return;
+            }
+            window.alert('USER NOT FOUND IN DB');
         },
         logout: (state) => {
             state.value.isLoggedIn = false;
