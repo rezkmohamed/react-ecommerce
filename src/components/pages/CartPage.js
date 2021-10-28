@@ -39,18 +39,16 @@ const CartPage = (props) => {
                         cartProducts.map(product => {
                             return (
                                 <tr className={classes.productitm}>
-                                    <td><img src="https://senetsoftware.com/Ross/PNG/PNG/brown-2.png" className={classes.thumb} alt="img cart"/></td>
+                                    <td><img src={product.main_img} className={classes.thumb} alt="img cart"/></td>
                                     <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
-                                    <td>Design Bundle Package</td>
-                                    <td>$ 50</td>
-                                </tr>
-        
-                            )
+                                    <td>{product.product_title}</td>
+                                    <td>$ {product.price}</td>
+                                </tr>)
                         })
                     }
 
                     
-                    <tr className={classes.productitm}>
+                    {/* <tr className={classes.productitm}>
                         <td><img src="https://senetsoftware.com/Ross/PNG/PNG/brown-2.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>Design Bundle Package</td>
@@ -79,7 +77,7 @@ const CartPage = (props) => {
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                         <td>JavaScript &amp; jQuery: The Missing Manual</td>
                         <td>$ 50</td>
-                    </tr>
+                    </tr> */}
                     </tbody>
                 </table>
                 </div>
