@@ -14,12 +14,14 @@ const cartSlice = createSlice({
             state.value.products.push(action.payload);
             state.value.totalPrice += action.payload.price;
             console.log(state.value.products);
+            localStorage.setItem('cart', JSON.stringify(state.value.products));
         },
         removeProductFromCart: (state, action) => {
 
         },
-        finishBuying: (state, action) => {
+        finishBuying: (state) => {
             state.value = initialStateValue;
+            localStorage.removeItem('cart');
             console.log('Buying process finished!');
         }
     }

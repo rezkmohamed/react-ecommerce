@@ -52,7 +52,7 @@ const Header = () => {
                                         onClick={onLogout}>Log out</Link>
                                 }
 
-                                <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>Carrello</Link>
+                                <Link to="/cart" style={{ color: 'white', textDecoration: 'inherit' }}>Carrello</Link>
                                 <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>About</Link>
                             </div>
                         </div>
