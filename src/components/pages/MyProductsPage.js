@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 const MyProductsPage = () => {
     const history = useHistory();
     const products = useSelector((state) => state.auth.value.profileData.products);
+    console.log(products);
 
     const goToAddProd = () => {
         history.push("/newprod");
@@ -35,9 +36,9 @@ const MyProductsPage = () => {
                         products.map(product => {
                             return (
                                 <tr className={classes.productitm}>
-                                    <td><img src={product.main_img} className={classes.thumb} alt="img cart"/></td>
+                                    <td><img src={product.imgProd} className={classes.thumb} alt="img cart"/></td>
                                     <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
-                                    <td>{product.product_title}</td>
+                                    <td>{product.nameProd}</td>
                                     <td>$ {product.price}</td>
                                 </tr>)
                         })

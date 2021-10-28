@@ -14,15 +14,14 @@ const productsVendorSlice = createSlice({
             const profile = JSON.parse(localStorage.getItem('profileData'));
             const profiles = JSON.parse(localStorage.getItem('profiles'));
             profile.products.push(action.payload);
-            for(let p of profiles) {
-                if(p.email === profile.email){
+            const profilesUpdated = profiles.map(p => {
+                if(p.email === profile.email) {
                     p = profile;
-                    console.log(p);
                 }
-            }
-            console.log(profiles);
+                return p;
+            })
             localStorage.setItem('profileData',JSON.stringify(profile));
-            localStorage.setItem('profiles', JSON.stringify(profiles));
+            localStorage.setItem('profiles', JSON.stringify(profilesUpdated));
             window.alert('PRODUCT ADDED!!!');
 
         }
