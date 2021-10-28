@@ -3,15 +3,19 @@ import Footer from '../UI/Footer';
 import Header from '../UI/Header';
 import classes from "./CartPage.module.css";
 import { cartActions } from '../../services/cart-slice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CartPage = (props) => {
     const dispatch = useDispatch();
+    const cartProducts = useSelector((state) => state.cart.value.products);
+    console.log(cartProducts);
 
     const finishShop = () => {
         dispatch(cartActions.finishBuying());
         window.alert('ACQUISTO TERMINATO');
     };
+    
+
 
     return (
         <React.Fragment>
@@ -31,6 +35,21 @@ const CartPage = (props) => {
                     </tr>
                     </thead>
                     <tbody>
+                    {
+                        cartProducts.map(product => {
+                            return (
+                                <tr className={classes.productitm}>
+                                    <td><img src="https://senetsoftware.com/Ross/PNG/PNG/brown-2.png" className={classes.thumb} alt="img cart"/></td>
+                                    <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
+                                    <td>Design Bundle Package</td>
+                                    <td>$ 50</td>
+                                </tr>
+        
+                            )
+                        })
+                    }
+
+                    
                     <tr className={classes.productitm}>
                         <td><img src="https://senetsoftware.com/Ross/PNG/PNG/brown-2.png" className={classes.thumb} alt="img cart"/></td>
                         <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>

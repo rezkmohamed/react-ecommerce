@@ -4,99 +4,83 @@ import classes from "./Gallery.module.css";
 const Gallery = (props) => {
     return (
         <React.Fragment>
-            <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css"
-            integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-            />
-
         <body>
             <div className={classes.container}>
             <div className={classes.gallery}>
                 <a
-                href="https://images.pexels.com/photos/1447885/pexels-photo-1447885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption1"
                 >
                 <img
-                    src="https://images.pexels.com/photos/1447885/pexels-photo-1447885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/3058391/pexels-photo-3058391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption2"
                 >
                 <img
-                    src="https://images.pexels.com/photos/3058391/pexels-photo-3058391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/1457611/pexels-photo-1457611.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption3"
                 >
                 <img
-                    src="https://images.pexels.com/photos/1457611/pexels-photo-1457611.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/3366753/pexels-photo-3366753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption4"
                 >
                 <img
-                    src="https://images.pexels.com/photos/3366753/pexels-photo-3366753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/5379143/pexels-photo-5379143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption5"
                 >
                 <img
-                    src="https://images.pexels.com/photos/5379143/pexels-photo-5379143.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/1820575/pexels-photo-1820575.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption6"
                 >
                 <img
-                    src="https://images.pexels.com/photos/1820575/pexels-photo-1820575.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/693429/pexels-photo-693429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption7"
                 >
                 <img
-                    src="https://images.pexels.com/photos/693429/pexels-photo-693429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
                 <a
-                href="https://images.pexels.com/photos/3108920/pexels-photo-3108920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption8"
                 >
                 <img
-                    src="https://images.pexels.com/photos/3108920/pexels-photo-3108920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
                 </a>
             </div>
             </div>
-
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.js"
-            integrity="sha512-0rYcJjaqTGk43zviBim8AEjb8cjUKxwxCqo28py38JFKKBd35yPfNWmwoBLTYORC9j/COqldDc9/d1B7dhRYmg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-            ></script>
-            
         </body>
         </React.Fragment>
     );
