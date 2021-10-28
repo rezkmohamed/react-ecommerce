@@ -1,7 +1,10 @@
 import React from 'react';
 import classes from "./Gallery.module.css";
 
-const Gallery = (props) => {
+const Gallery = ({products}) => {
+
+
+    
     return (
         <React.Fragment>
         <body>

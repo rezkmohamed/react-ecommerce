@@ -4,6 +4,8 @@ import Gallery from '../UI/Gallery';
 import Header from '../UI/Header';
 
 const SearchPage = () => {
+    
+
     return (
         <React.Fragment>
             <Header />

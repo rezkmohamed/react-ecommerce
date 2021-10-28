@@ -53,7 +53,14 @@ const Header = () => {
                                 }
 
                                 <Link to="/cart" style={{ color: 'white', textDecoration: 'inherit' }}>Carrello</Link>
-                                <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>About</Link>
+                                {
+                                    isLoggedIn.isVendor &&
+                                    <Link to="/myprods" style={{ color: 'white', textDecoration: 'inherit' }}>Miei Prodotti</Link>
+                                }
+                                {
+                                    !isLoggedIn.isVendor &&
+                                    <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>About</Link>
+                                }
                             </div>
                         </div>
                     </div>
