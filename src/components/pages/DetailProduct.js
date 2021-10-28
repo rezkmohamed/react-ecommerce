@@ -2,8 +2,12 @@ import React from 'react';
 import Footer from '../UI/Footer';
 import Header from '../UI/Header';
 import classes from "./DetailProduct.module.css";
+import { cartActions } from '../../services/cart-slice';
+import { useDispatch } from 'react-redux';
 
-const DetailProduct = (props) => {
+const DetailProduct = () => {
+    const dispatch = useDispatch();
+
     const DUMMY_DATA = {
         main_img: "https://i.ibb.co/xYpFY0T/item1.jpg",
         other_imgs: [
@@ -11,7 +15,15 @@ const DetailProduct = (props) => {
             "https://i.ibb.co/Jt5zc58/thumb2.jpg",
             "https://i.ibb.co/Yf9LMpy/thumb3.jpg",
             "https://i.ibb.co/60hPGy2/thumb4.jpg"
-        ]
+        ], 
+        product_title: "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
+        price: 449.00,
+        sizes: [
+            'S',
+            'M',
+            'L',
+            'XL'
+        ],
     };
 
 
@@ -20,6 +32,10 @@ const DetailProduct = (props) => {
         mainPic.setAttribute('src', img);
     }
 
+    const addToCart = () => {
+        dispatch(cartActions.addProductToCart(DUMMY_DATA));
+        window.alert('PRODOTTO AGGIUNTO AL CARRELLO');
+    }
 
 
     return (
@@ -45,11 +61,11 @@ const DetailProduct = (props) => {
 
             <div className={classes['item-info-parent']}>
                 <div className={classes['main-info']}>
-                    <h4>EYEBOGLER Regular Fit Men's Cotton T-Shirt</h4>
-                    <div className={classes['star-rating']}>
+                    <h4>{DUMMY_DATA.product_title}</h4>
+                    {/* <div className={classes['star-rating']}>
                         <span>★★★★</span>★            
-                    </div>
-                    <p>Price: <span className={classes.price}>$ 449.00</span></p>
+                    </div> */}
+                    <p>Price: <span className={classes.price}>$ {DUMMY_DATA.price}</span></p>
                 </div>
                 <div className={classes['select-items']}>
                     
@@ -66,19 +82,26 @@ const DetailProduct = (props) => {
                     <div className={classes['change-size']}>
                         <label><b>Size:</b></label><br />
                         <select>
-                            <option>S</option>
+                            {
+                                DUMMY_DATA.sizes.map(size => {
+                                    return (
+                                        <option>{size}</option>
+                                    )
+                                })
+                            }
+                            {/* <option>S</option>
                             <option>M</option>
                             <option>L</option>
                             <option>XL</option>
-                            <option>2XL</option>
+                            <option>2XL</option> */}
                         </select>
                     </div>
 
-                    <div className={`btn btn-primary ${classes.btn}`}>
+                    <div className={`btn btn-primary ${classes.btn}`} onClick={addToCart}>
                         aggiungi al carrello
                     </div>
 
-                    <div className={classes.description}>
+                    {/* <div className={classes.description}>
                         <ul>
                             <li>Care Instructions: Machine Wash</li>
                             <li>Fit Type: Classic Fit</li>
@@ -86,7 +109,7 @@ const DetailProduct = (props) => {
                             <li>Material: Cotton</li>
                             <li>Pattern: Solid</li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

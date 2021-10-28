@@ -11,7 +11,9 @@ const cartSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         addProductToCart: (state, action) => {
-            
+            state.value.products.push(action.payload);
+            state.value.totalPrice += action.payload.price;
+            console.log(state.value.products);
         },
         removeProductFromCart: (state, action) => {
 
