@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Register.module.css";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../../services/auth-slice";
+
 
 const Register = () => {
+    const emailRef = useRef();
+    const psw = useRef();
+    const pswConfirm = useRef();
+    const typeOfUser = useRef();
+    const dispatch = useDispatch();
     
+    const onRegister = () => {
+        const email = emailRef.current.value;
+        const pswCurrent = psw.current.value;
+        const pswConfirmCurrent = pswConfirm.current.value;
+        const typeOfuserCurrent = typeOfUser.current.value;
+        if(pswCurrent !== pswConfirmCurrent){
+            window.alert('DIFFERENT PASSWORDS!!!');
+            return;
+        }
+
+        console.log(email, pswCurrent, pswConfirmCurrent, typeOfuserCurrent);
+        dispatch(authActions.register({
+            email: email,
+            psw: pswCurrent,
+            typeOfUser: typeOfuserCurrent,
+            products: [],
+            cart: []
+        }));
+    };
 
 
     return(
@@ -22,26 +49,26 @@ const Register = () => {
                 <div className={classes['input-group-prepend']}>
                 <span className={classes['input-group-text']}><i className="fa fa-user"></i></span>
             </div>
-            <input type="text" className={classes['form-control']} placeholder="Email" />
+            <input type="text" className={classes['form-control']} placeholder="Email" ref={emailRef} />
             </div>
             <div className={`${classes['input-group']} ${classes['mb-3']}`}>
                 <div className={classes['input-group-prepend']}>
                 <span className={classes['input-group-text']}><i className="fa fa-lock"></i></span>
             </div>
-            <input type="text" className={classes['form-control']} placeholder="Password" />
-            <input type="text" className={classes['form-control']} placeholder="Conferma Password" />
+            <input type="password" className={classes['form-control']} placeholder="Password" ref={psw} />
+            <input type="password" className={classes['form-control']} placeholder="Conferma Password" ref={pswConfirm} />
             </div>
             <div>
-                <input type="radio" id="huey" name="drone" value="huey" defaultChecked />
+                <input type="radio" id="huey" name="drone" value="user" defaultChecked ref={typeOfUser}/>
                 <label htmlFor="huey">Acquirente</label>
             </div>
 
             <div>
-                <input type="radio" id="dewey" name="drone" value="dewey" />
+                <input type="radio" id="dewey" name="drone" value="vendor" ref={typeOfUser} />
                 <label html="dewey">Venditore</label>
             </div>
 
-            <button type="button" className={`${classes.button} ${classes['btn-secondary']} ${classes['btn-block']}`}>REGISTRA</button>
+            <button type="button" className={`${classes.button} ${classes['btn-secondary']} ${classes['btn-block']}`} onClick={onRegister}>REGISTRA</button>
             <div className={classes.message}>
             {/* <div><input type="checkbox" /> Remember ME</div> */}
             <div><Link to="/login">Vai a Login</Link></div>

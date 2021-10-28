@@ -45,7 +45,7 @@ const Login = () => {
                 <div className={classes['input-group-prepend']}>
                 <span className={classes['input-group-text']}><i className="fa fa-lock"></i></span>
             </div>
-            <input type="text" className={classes['form-control']} ref={psw} placeholder="Password" />
+            <input type="password" className={classes['form-control']} ref={psw} placeholder="Password" />
             </div>
             <button type="button" className={`${classes.button} ${classes['btn-secondary']} ${classes['btn-block']}`} onClick={onLogin}>LOGIN</button>
             <div className={classes.message}>
