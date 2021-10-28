@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStateValue = {
+const initialStateValue = 
+{
     isLoggedIn: false,
     profileData: {
         email: "",
@@ -10,6 +11,12 @@ const initialStateValue = {
         cart: []
     },
 };
+
+const profileDataStorage = JSON.parse(localStorage.getItem('profileData'));
+if(profileDataStorage){
+    initialStateValue.isLoggedIn = true;
+    initialStateValue.profileData = profileDataStorage;
+}
 
 const authSlice = createSlice({
     name: 'auth',

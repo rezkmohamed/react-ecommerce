@@ -9,6 +9,7 @@ const Header = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const isLoggedIn = useSelector((state) => state.auth.value.profileData);
+    console.log(isLoggedIn);
 
     const onLogout = () => {
         dispatch(authActions.logout());
