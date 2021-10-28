@@ -27,7 +27,7 @@ const authSlice = createSlice({
             const checkProfile = profiles.filter(profile => profile.email === action.payload.email && profile.psw === action.payload.psw);
             if(checkProfile){
                 state.value.isLoggedIn = true;
-                state.value.profileData = action.payload;
+                state.value.profileData = checkProfile[0];
                 localStorage.setItem('profileData', JSON.stringify(state.value.profileData));
                 console.log(action.payload);    
                 return;

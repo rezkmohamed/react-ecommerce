@@ -9,6 +9,7 @@ const AddNewProduct = (props) => {
     const nameProd = useRef();
     const categoryProd = useRef();
     const imgProd = useRef();
+    const price = useRef();
     const dispatch = useDispatch();
 
     const onAddNewProduct = (event) => {
@@ -16,10 +17,12 @@ const AddNewProduct = (props) => {
         const nameProdCurr = nameProd.current.value;
         const categoryProdCurr = categoryProd.current.value;
         const imgProdCurr = imgProd.current.value;
+        const priceCurr = price.current.value;
         dispatch(productsVendorActions.addNewProduct({
             nameProd: nameProdCurr,
             categoryProd: categoryProdCurr,
-            imgProd: imgProdCurr
+            imgProd: imgProdCurr,
+            price: priceCurr
         }));
     };
 
@@ -53,6 +56,17 @@ const AddNewProduct = (props) => {
                     ref={imgProd}
                     required />
                 </div>
+
+                <div className="form-group">
+                <label id="price">Prezzo</label>
+                <input className="form-control"
+                    type="number" 
+                    name="price"
+                    ref={price}
+                    required />
+                </div>
+
+
                 <button className={`btn btn-primary ${classes.btn}`}>Aggiungi prodotto</button>
             </form>
             </div>
