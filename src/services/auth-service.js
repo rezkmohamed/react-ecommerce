@@ -23,4 +23,28 @@ export const registerProfile = (email, password, isVendor) => {
     }
 
     return registerProfileReq();
-}
+};
+
+export const login = (email, password) => {
+    const loginReq = async () => {
+        const response = await fetch(urlBase + "login", {
+            method: 'POST',
+            body: JSON.stringify({
+                email: email,
+                password: password
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if(!response.ok){
+            console.log('error: ' + response.status);
+            throw new Error('Error: ' + response.status);
+        }
+
+        return response;
+    }
+
+    return loginReq();
+};
