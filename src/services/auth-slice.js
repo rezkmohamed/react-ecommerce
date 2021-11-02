@@ -53,8 +53,9 @@ const authSlice = createSlice({
                 profiles.push(action.payload);
                 localStorage.setItem('profiles', JSON.stringify(profiles));
                 window.alert('PROFILE REGISTRATED. PROCEED WITH LOGIN');    
+            } else {
+                localStorage.setItem('profiles', JSON.stringify([action.payload]));
             }
-            localStorage.setItem('profiles', JSON.stringify([action.payload]));
         }
     }
 });

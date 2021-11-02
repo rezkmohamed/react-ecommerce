@@ -15,8 +15,6 @@ const LandingPage = (props) => {
         setIsLoading(false);
     }, []);
 
-
-
     return (
         <div>
             <Header />
