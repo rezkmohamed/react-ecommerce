@@ -45,7 +45,8 @@ const authSlice = createSlice({
 
             if(profiles) {
                 const checkIfEmailExists = profiles.filter((profile) => profile.email === action.payload.email);
-                if(checkIfEmailExists){
+                if(checkIfEmailExists.length > 0){
+                    console.log(checkIfEmailExists);
                     window.alert('email already exists!!!');
                     return;
                 }
