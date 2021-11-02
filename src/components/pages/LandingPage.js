@@ -7,6 +7,7 @@ const LandingPage = (props) => {
     return (
         <div>
             <Header />
+            <h1>Prodotti in vetrina</h1>
             <Gallery />
             <Footer />
         </div>

@@ -1,16 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from "./Gallery.module.css";
 
-const Gallery = ({products}) => {
-
-
-    
+const Gallery = ({products, isLoading}) => {
+    console.log(products);
     return (
         <React.Fragment>
         <body>
             <div className={classes.container}>
             <div className={classes.gallery}>
-                <a
+                {
+                    isLoading && 
+                    <p>LOADINGGGGGGGGGGG</p>
+                }
+                {
+                    !isLoading && 
+                    products.map(prod => {
+                        return (
+                        <Link
+                        to="/"
+                        data-lightbox="models"
+                        data-title="Caption1"
+                        >
+                        <img
+                            src={prod.imgProd}
+                            alt="foto rappresentativa del prodotto"
+                        />
+                        </Link>)
+                        })
+                }
+
+                {/* <a
                 href="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 data-lightbox="models"
                 data-title="Caption1"
@@ -81,7 +101,7 @@ const Gallery = ({products}) => {
                 <img
                     src="https://m.media-amazon.com/images/I/718s2f1qRWL._AC_UX679_.jpg"
                 />
-                </a>
+                </a> */}
             </div>
             </div>
         </body>

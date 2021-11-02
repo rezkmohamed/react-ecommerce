@@ -4,16 +4,23 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../../services/auth-slice';
 import { useHistory } from 'react-router';
+import { useRef } from 'react';
 
 const Header = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const isLoggedIn = useSelector((state) => state.auth.value.profileData);
     console.log(isLoggedIn);
+    const prodToSearch = useRef();
 
     const onLogout = () => {
         dispatch(authActions.logout());
         history.push("/login");
+    };
+
+    const onSearchProd = (event) => {
+        event.preventDefault();
+        history.push(`/search/?name=${prodToSearch.current.value}`);
     };
 
     return (
@@ -32,10 +39,10 @@ const Header = () => {
                                         <Link to="" style={{ color: 'black', textDecoration: 'inherit' }}>Tutto</Link>
                                     </div>
                                     <div className={classes['nav-fill']}>
-                                        <input type="text" />
+                                        <input type="text" ref={prodToSearch}/>
                                     </div>
                                     <div className={classes["nav-right"]}>
-                                        <button type="submit">Search</button>
+                                        <button type="submit" onClick={onSearchProd}>Search</button>
                                     </div>
                                 </form>
                             </div>
