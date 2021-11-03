@@ -3,19 +3,26 @@ import classes from "./MyProductsPage.module.css";
 import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
-import { fetchProducts } from '../../services/products-service';
+// import { useSelector } from 'react-redux';
+import { fetchProductsProfileLogged } from '../../services/products-service';
 
 const MyProductsPage = () => {
     const history = useHistory();
     // const products = useSelector((state) => state.auth.value.profileData.products);
     // console.log(products);
-    const idProfileLogged = useSelector((state) => state.auth.value.profileData.idProfile);
-    console.log(idProfileLogged);
+    // const idProfileLogged = useSelector((state) => state.auth.value.profileData.idProfile);
+    // console.log(idProfileLogged);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-
+        fetchProductsProfileLogged()
+        .then(res => {
+            setProducts(res);
+            console.log(products);
+        }).catch(err => {
+            console.log(err);
+            window.alert('ERRORE: ' + err.message);
+        })
     }, []);
 
 
