@@ -4,6 +4,8 @@ import classes from "./Login.module.css";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../services/auth-slice";
+import { login } from "../../../services/auth-service";
+import jwt_decode from "jwt-decode";
 
 const Login = () => {
     const history = useHistory();
@@ -15,13 +17,23 @@ const Login = () => {
         event.preventDefault();
         const loginData = {
             email: email.current.value,
-            psw: psw.current.value,
-            isVendor: true,
-            products: []
+            password: psw.current.value,
         }
-        dispatch(authActions.login(loginData));
-        history.push("/");
-    }
+        login(loginData.email, loginData.password)
+        .then(res => {
+            let token = res.headers.get("Authentication").replace("Bearer ", "");
+            let responseDecoded = jwt_decode(token);
+            console.log(responseDecoded);
+            localStorage.setItem('token', token);
+            localStorage.setItem('profileData', JSON.stringify(responseDecoded));
+            dispatch(authActions.login(responseDecoded.isVendor, responseDecoded.idProfile));
+            history.push("/");    
+        }).catch(err => {
+            window.alert('ERRORE DURANTE IL LOGIN SCEMO.');
+            console.log(err);
+        });
+
+    };
 
     return(
         <div className={classes.container}>

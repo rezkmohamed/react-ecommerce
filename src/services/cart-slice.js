@@ -17,7 +17,7 @@ const cartSlice = createSlice({
             localStorage.setItem('cart', JSON.stringify(state.value.products));
         },
         removeProductFromCart: (state, action) => {
-
+            
         },
         finishBuying: (state) => {
             state.value = initialStateValue;

@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialStateValue = 
 {
     isLoggedIn: false,
     profileData: {
-        email: "",
-        psw: "",
         isVendor: false,
-        products: [],
-        cart: []
+        idProfile: ''
     },
 };
 
@@ -23,16 +21,9 @@ const authSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         login: (state, action) => {
-            const profiles = JSON.parse(localStorage.getItem('profiles'));
-            const checkProfile = profiles.filter(profile => profile.email === action.payload.email && profile.psw === action.payload.psw);
-            if(checkProfile){
-                state.value.isLoggedIn = true;
-                state.value.profileData = checkProfile[0];
-                localStorage.setItem('profileData', JSON.stringify(state.value.profileData));
-                console.log(action.payload);    
-                return;
-            }
-            window.alert('USER NOT FOUND IN DB');
+            state.value.isLoggedIn = true;
+            state.value.profileData.isVendor = action.payload.isVendor;
+            state.value.profileData.idProfile = action.payload.idProfile;
         },
         logout: (state) => {
             state.value.isLoggedIn = false;
