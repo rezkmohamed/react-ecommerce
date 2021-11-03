@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from "./MyProductsPage.module.css";
 import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
+import { fetchProducts } from '../../services/products-service';
 
 const MyProductsPage = () => {
     const history = useHistory();
-    const products = useSelector((state) => state.auth.value.profileData.products);
-    console.log(products);
+    // const products = useSelector((state) => state.auth.value.profileData.products);
+    // console.log(products);
+    const idProfileLogged = useSelector((state) => state.auth.value.profileData.idProfile);
+    console.log(idProfileLogged);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+
+    }, []);
+
 
     const goToAddProd = () => {
         history.push("/newprod");
-    }
+    };
 
     return (
         <React.Fragment>

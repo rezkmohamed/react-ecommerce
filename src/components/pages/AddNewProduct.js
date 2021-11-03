@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Footer from '../UI/Footer';
 import Header from '../UI/Header';
 import classes from "./AddNewProduct.module.css";
-import { productsVendorActions } from '../../services/products-vendor-slice';
+// import { productsVendorActions } from '../../services/products-vendor-slice';
 import { addProduct } from '../../services/products-service';
 
 const AddNewProduct = (props) => {
@@ -13,7 +13,7 @@ const AddNewProduct = (props) => {
     const price = useRef();
     const idProfile = useSelector((state) => state.auth.value.profileData.idProfile);
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const onAddNewProduct = (event) => {
         event.preventDefault();

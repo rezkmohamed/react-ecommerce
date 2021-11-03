@@ -40,6 +40,27 @@ export const fetchProductById = (idProduct) => {
     return fetchProductByIdReq();
 };
 
+export const fetchProductsProfileLogged = () => {
+    const token = localStorage.getItem('token');
+    const fetchProductsProfileLoggedReq = async () => {
+        const response = await fetch(urlBase + "myproducts", {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+            }
+        });
+
+        if(!response.ok){
+            console.log('error: ' + response.status);
+            throw new Error('Error: ' + response.status);
+        }
+        const data = await response.json();
+
+        return data;
+    }
+
+    return fetchProductsProfileLoggedReq();
+}
+
 export const addProduct = (product) => {
     const token = localStorage.getItem('token');
     const addProductReq = async () => {
@@ -62,4 +83,3 @@ export const addProduct = (product) => {
 
     return addProductReq();
 };
-
