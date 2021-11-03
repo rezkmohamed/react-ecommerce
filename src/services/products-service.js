@@ -61,11 +61,10 @@ export const fetchProductsProfileLogged = () => {
     return fetchProductsProfileLoggedReq();
 }
 
-
 export const fetchProductsByNameLike = (nameLike) => {
     const token = localStorage.getItem('token');
     const fetchProductsByNameLikeReq = async () => {
-        const response = await fetch(urlBase + "nameLike/" + nameLike, {
+        const response = await fetch(urlBase + "namelike/" + nameLike, {
             headers: {
                 'Authorization': 'Bearer ' + token,
             }

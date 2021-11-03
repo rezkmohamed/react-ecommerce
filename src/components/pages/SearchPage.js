@@ -3,6 +3,7 @@ import { useLocation } from 'react-router';
 import Footer from '../UI/Footer';
 import Gallery from '../UI/Gallery';
 import Header from '../UI/Header';
+import { fetchProductsByNameLike } from '../../services/products-service';
 
 const SearchPage = () => {
     const location = useLocation();
@@ -14,9 +15,18 @@ const SearchPage = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        let prods = JSON.parse(localStorage.getItem('products'));
-        setProducts(prods);
-        setIsLoading(false);
+        // let prods = JSON.parse(localStorage.getItem('products'));
+        // setProducts(prods);
+        fetchProductsByNameLike(prodNameLike)
+        .then(res => {
+            console.log(res);
+            setProducts(res);
+            setIsLoading(false);
+        }).catch(err => {
+            window.alert('ERRORRRRR: ' + err.message);
+            setIsLoading(false);
+        });
+
     }, [prodNameLike]);
 
     return (
