@@ -23,6 +23,7 @@ const MyProductsPage = () => {
             console.log(err);
             window.alert('ERRORE: ' + err.message);
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
