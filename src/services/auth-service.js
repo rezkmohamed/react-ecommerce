@@ -2,6 +2,8 @@ const urlBase = "http://localhost:8080/";
 
 
 export const registerProfile = (email, password, isVendor) => {
+    console.log(isVendor);
+
     const registerProfileReq = async () => {
         const response = await fetch(urlBase + "register", {
             method: 'POST',

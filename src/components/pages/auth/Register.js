@@ -7,9 +7,12 @@ const Register = () => {
     const emailRef = useRef();
     const psw = useRef();
     const pswConfirm = useRef();
-    const typeOfUser = useRef();
+    // const typeOfUser = useRef();
+    // const isUser = useRef();
+    // const isVendor = useRef();
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    let typeOfuserCurrent = false;
 
     const onRegister = () => {
         setError(false);
@@ -17,24 +20,36 @@ const Register = () => {
         const email = emailRef.current.value;
         const pswCurrent = psw.current.value;
         const pswConfirmCurrent = pswConfirm.current.value;
-        let typeOfuserCurrent = typeOfUser.current.value;
-        console.log(typeOfuserCurrent);
+        // let typeOfuserCurrent = typeOfUser.current.value;
+        // console.log(typeOfuserCurrent);
         if(pswCurrent !== pswConfirmCurrent){
             window.alert('DIFFERENT PASSWORDS!!!');
             setError(true);
             setIsLoading(false);
             return;
         }
+    //     if(isUser){
+    //         console.log('IS USER');
+    //         typeOfuserCurrent = false;
+    //     } else if (isVendor) {
+    //         console.log('IS VENDOR');
+    //         typeOfuserCurrent = true;
+    //     } else {
+    //         window.alert('ERROREEEEEEE NELLA REGISTRAZIONE. VALORE DI TYPE OF USER NON CORRETTO');
+    //         return;
+    // }
 
-        if(typeOfuserCurrent === 'user') {
-            typeOfuserCurrent = false;
-        } else if (typeOfuserCurrent === 'vendor') {
-            console.log('is vendor!!!');
-            typeOfuserCurrent = true;
-        } else {
-            window.alert('ERROREEEEEEE NELLA REGISTRAZIONE. VALORE DI TYPE OF USER NON CORRETTO');
-            return;
-        }
+        // if(typeOfuserCurrent === 'user') {
+        //     typeOfuserCurrent = false;
+        //     console.log('is user!!!!');
+        // } else if (typeOfuserCurrent === 'vendor') {
+        //     console.log('is vendor!!!');
+        //     typeOfuserCurrent = true;
+        // } else {
+        //     window.alert('ERROREEEEEEE NELLA REGISTRAZIONE. VALORE DI TYPE OF USER NON CORRETTO');
+        //     return;
+        // }
+        console.log(typeOfuserCurrent);
 
         registerProfile(email, pswCurrent, typeOfuserCurrent)
         .then(res => {
@@ -49,6 +64,17 @@ const Register = () => {
             window.alert('ERRORREEEEEEEE NELLA REGISTRAZIONEEEEEE');
             setIsLoading(false);
         });
+    };
+
+    const checkLabelTypeOfUser = (type) => {
+        console.log(type);
+        if(type === 'user'){
+            typeOfuserCurrent = false;
+        } else if (type === 'vendor'){
+            typeOfuserCurrent = true;
+        } else {
+            window.alert('ERROR: PROBLEMA CON LA SELEZIONE DEL TIPO DI UTENZA');
+        }
     };
 
 
@@ -78,12 +104,12 @@ const Register = () => {
             <input type="password" className={classes['form-control']} placeholder="Conferma Password" ref={pswConfirm} />
             </div>
             <div>
-                <input type="radio" id="huey" name="drone" value="user" defaultChecked ref={typeOfUser}/>
+                <input type="radio" id="huey" name="drone" value="user" defaultChecked onClick={() => checkLabelTypeOfUser('user')}/>
                 <label htmlFor="huey">Acquirente</label>
             </div>
 
             <div>
-                <input type="radio" id="dewey" name="drone" value="vendor" ref={typeOfUser} />
+                <input type="radio" id="dewey" name="drone" value="vendor" onClick={() => checkLabelTypeOfUser('vendor')}/>
                 <label html="dewey">Venditore</label>
             </div>
 

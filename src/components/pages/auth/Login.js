@@ -18,7 +18,7 @@ const Login = () => {
         const loginData = {
             email: email.current.value,
             password: psw.current.value,
-        }
+        };
         login(loginData.email, loginData.password)
         .then(res => {
             let token = res.headers.get("Authentication").replace("Bearer ", "");
@@ -26,7 +26,8 @@ const Login = () => {
             console.log(responseDecoded);
             localStorage.setItem('token', token);
             localStorage.setItem('profileData', JSON.stringify(responseDecoded));
-            dispatch(authActions.login(responseDecoded.isVendor, responseDecoded.idProfile));
+            console.log(responseDecoded);
+            dispatch(authActions.login({isVendor: responseDecoded.isVendor,idProfile: responseDecoded.idProfile}));
             history.push("/");    
         }).catch(err => {
             window.alert('ERRORE DURANTE IL LOGIN SCEMO.');
