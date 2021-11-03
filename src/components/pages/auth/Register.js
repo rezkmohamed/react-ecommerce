@@ -1,35 +1,54 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./Register.module.css";
-import { useDispatch } from "react-redux";
-import { authActions } from "../../../services/auth-slice";
-
+import { registerProfile } from "../../../services/auth-service";
 
 const Register = () => {
     const emailRef = useRef();
     const psw = useRef();
     const pswConfirm = useRef();
     const typeOfUser = useRef();
-    const dispatch = useDispatch();
-    
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const onRegister = () => {
+        setError(false);
+        setIsLoading(true);
         const email = emailRef.current.value;
         const pswCurrent = psw.current.value;
         const pswConfirmCurrent = pswConfirm.current.value;
-        const typeOfuserCurrent = typeOfUser.current.value;
+        let typeOfuserCurrent = typeOfUser.current.value;
+        console.log(typeOfuserCurrent);
         if(pswCurrent !== pswConfirmCurrent){
             window.alert('DIFFERENT PASSWORDS!!!');
+            setError(true);
+            setIsLoading(false);
             return;
         }
 
-        console.log(email, pswCurrent, pswConfirmCurrent, typeOfuserCurrent);
-        dispatch(authActions.register({
-            email: email,
-            psw: pswCurrent,
-            typeOfUser: typeOfuserCurrent,
-            products: [],
-            cart: []
-        }));
+        if(typeOfuserCurrent === 'user') {
+            typeOfuserCurrent = false;
+        } else if (typeOfuserCurrent === 'vendor') {
+            console.log('is vendor!!!');
+            typeOfuserCurrent = true;
+        } else {
+            window.alert('ERROREEEEEEE NELLA REGISTRAZIONE. VALORE DI TYPE OF USER NON CORRETTO');
+            return;
+        }
+
+        registerProfile(email, pswCurrent, typeOfuserCurrent)
+        .then(res => {
+            if(!res){
+                setError(true);
+                window.alert('ERRORREEEEEEEE NELLA REGISTRAZIONEEEEEE');
+            }
+            setIsLoading(false);
+            window.alert('APPOSTO, PROCEDI CON LOGIN');
+        }).catch(err => {
+            setError(true);
+            window.alert('ERRORREEEEEEEE NELLA REGISTRAZIONEEEEEE');
+            setIsLoading(false);
+        });
     };
 
 

@@ -40,23 +40,6 @@ const authSlice = createSlice({
             localStorage.removeItem('profileData');
             console.log('logged out.');
         },
-        register: (state, action) => {
-            const profiles = JSON.parse(localStorage.getItem('profiles'));
-
-            if(profiles) {
-                const checkIfEmailExists = profiles.filter((profile) => profile.email === action.payload.email);
-                if(checkIfEmailExists.length > 0){
-                    console.log(checkIfEmailExists);
-                    window.alert('email already exists!!!');
-                    return;
-                }
-                profiles.push(action.payload);
-                localStorage.setItem('profiles', JSON.stringify(profiles));
-                window.alert('PROFILE REGISTRATED. PROCEED WITH LOGIN');    
-            } else {
-                localStorage.setItem('profiles', JSON.stringify([action.payload]));
-            }
-        }
     }
 });
 
