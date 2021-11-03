@@ -61,6 +61,27 @@ export const fetchProductsProfileLogged = () => {
     return fetchProductsProfileLoggedReq();
 }
 
+
+export const fetchProductsByNameLike = (nameLike) => {
+    const token = localStorage.getItem('token');
+    const fetchProductsByNameLikeReq = async () => {
+        const response = await fetch(urlBase + "nameLike/" + nameLike, {
+            headers: {
+                'Authorization': 'Bearer ' + token,
+            }
+        });
+        if(!response.ok){
+            console.log('error: ' + response.status);
+            throw new Error('Error: ' + response.status);
+        }
+        const data = await response.json();
+
+        return data;
+    }
+
+    return fetchProductsByNameLikeReq();
+}
+
 export const addProduct = (product) => {
     const token = localStorage.getItem('token');
     const addProductReq = async () => {

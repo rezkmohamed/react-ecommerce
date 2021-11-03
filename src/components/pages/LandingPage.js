@@ -5,7 +5,7 @@ import Header from '../UI/Header';
 import { useState, useEffect } from 'react';
 import { fetchProducts } from '../../services/products-service';
 
-const LandingPage = (props) => {
+const LandingPage = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
