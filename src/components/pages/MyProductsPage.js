@@ -33,6 +33,7 @@ const MyProductsPage = () => {
                     </thead>
                     <tbody>
                     {
+                        products &&
                         products.map(product => {
                             return (
                                 <tr className={classes.productitm}>

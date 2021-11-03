@@ -28,16 +28,16 @@ const Register = () => {
             setIsLoading(false);
             return;
         }
-    //     if(isUser){
-    //         console.log('IS USER');
-    //         typeOfuserCurrent = false;
-    //     } else if (isVendor) {
-    //         console.log('IS VENDOR');
-    //         typeOfuserCurrent = true;
-    //     } else {
-    //         window.alert('ERROREEEEEEE NELLA REGISTRAZIONE. VALORE DI TYPE OF USER NON CORRETTO');
-    //         return;
-    // }
+        //     if(isUser){
+        //         console.log('IS USER');
+        //         typeOfuserCurrent = false;
+        //     } else if (isVendor) {
+        //         console.log('IS VENDOR');
+        //         typeOfuserCurrent = true;
+        //     } else {
+        //         window.alert('ERROREEEEEEE NELLA REGISTRAZIONE. VALORE DI TYPE OF USER NON CORRETTO');
+        //         return;
+        // }
 
         // if(typeOfuserCurrent === 'user') {
         //     typeOfuserCurrent = false;
