@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialStateValue = 
 {
     isLoggedIn: false,
@@ -29,6 +28,7 @@ const authSlice = createSlice({
             state.value.isLoggedIn = false;
             state.value.profileData = initialStateValue;
             localStorage.removeItem('profileData');
+            localStorage.removeItem('token');
             console.log('logged out.');
         },
     }
