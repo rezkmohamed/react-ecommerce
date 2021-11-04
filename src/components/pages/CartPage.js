@@ -43,7 +43,7 @@ const CartPage = (props) => {
                             return (
                                 <tr className={classes.productitm} key ={product.idProduct}>
                                     <td><img src={product.img} className={classes.thumb} alt="img cart"/></td>
-                                    <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
+                                    <td><input type="number" defaultValue="1" min="0" max="99" className={classes.qtyinput} /></td>
                                     <td>{product.product_title}</td>
                                     <td>$ {product.price}</td>
                                     <td><button className="btn btn-primary" onClick={() => onRemoveProduct(product.idProduct)}>X</button></td>
