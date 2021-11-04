@@ -15,8 +15,6 @@ const SearchPage = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        // let prods = JSON.parse(localStorage.getItem('products'));
-        // setProducts(prods);
         fetchProductsByNameLike(prodNameLike)
         .then(res => {
             console.log(res);

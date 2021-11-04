@@ -18,7 +18,8 @@ const Gallery = ({products, isLoading}) => {
                     products.map(prod => {
                         return (
                         <Link
-                        to="/"
+                        to={`/detail/?idprod=${prod.idProduct}`}
+                        key={prod.idProduct}
                         data-lightbox="models"
                         data-title="Caption1"
                         >
