@@ -33,6 +33,7 @@ const Gallery = ({products, isLoading}) => {
                                     <p>
                                         price: $ {prod.price}
                                     </p>
+                                    <p>quantity: {prod.quantity}</p>
                                 </div>
                             </div>)
                         })

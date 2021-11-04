@@ -32,29 +32,6 @@ const DetailProduct = () => {
         });
     }, [prodId]);
 
-
-    // const DUMMY_DATA = {
-    //     main_img: "https://i.ibb.co/xYpFY0T/item1.jpg",
-    //     other_imgs: [
-    //         "https://i.ibb.co/VJf6fXm/thumb1.jpg",
-    //         "https://i.ibb.co/Jt5zc58/thumb2.jpg",
-    //         "https://i.ibb.co/Yf9LMpy/thumb3.jpg",
-    //         "https://i.ibb.co/60hPGy2/thumb4.jpg"
-    //     ], 
-    //     product_title: "EYEBOGLER Regular Fit Men's Cotton T-Shirt",
-    //     price: 449.00,
-    //     sizes: [
-    //         'S',
-    //         'M',
-    //         'L',
-    //         'XL'
-    //     ],
-    // };
-    // const switchPicture = (img) => {
-    //     let mainPic = document.querySelector("#main-img");
-    //     mainPic.setAttribute('src', img);
-    // };
-
     const addToCart = () => {
         dispatch(cartActions.addProductToCart(product));
         window.alert('PRODOTTO AGGIUNTO AL CARRELLO');
@@ -96,6 +73,8 @@ const DetailProduct = () => {
                             <span>★★★★</span>★            
                         </div> */}
                         <p>Price: <span className={classes.price}>$ {product.price}</span></p>
+                        <p>Quantity: <span className={classes.price}>{product.quantity}</span></p>
+
                     </div>
                     <div className={classes['select-items']}>
                         
