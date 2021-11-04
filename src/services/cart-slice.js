@@ -15,7 +15,6 @@ if(productsInStorage){
     });
 }
 
-
 const cartSlice = createSlice({
     name: 'cart',
     initialState: { value: initialStateValue },
@@ -29,10 +28,6 @@ const cartSlice = createSlice({
         },
         removeProductFromCart: (state, action) => {
             const storageProducts = JSON.parse(localStorage.getItem('cart'));
-            
-            
-
-
             const indx = storageProducts.findIndex((prod) => {
                 return prod.idProduct === action.payload;
             });

@@ -24,7 +24,7 @@ const Gallery = ({products, isLoading}) => {
                         data-title="Caption1"
                         >
                         <img
-                            src={prod.imgProd}
+                            src={prod.img}
                             alt="foto rappresentativa del prodotto"
                         />
                         </Link>)
