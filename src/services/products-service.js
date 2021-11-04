@@ -103,3 +103,26 @@ export const addProduct = (product) => {
 
     return addProductReq();
 };
+
+export const shopProducts = (products) => {
+    const token = localStorage.getItem('token');
+    const shopProductsReq = async () => {
+        const response = await fetch(urlBase + "shop", {
+            method: 'PUT',
+            body: JSON.stringify(products),
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if(!response.ok){
+            console.log('error: ' + response.status);
+            throw new Error('Error: ' + response.status);
+        }
+
+        return true;
+    }
+
+    return shopProductsReq();
+};

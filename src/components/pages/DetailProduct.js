@@ -10,7 +10,6 @@ import { fetchProductById } from '../../services/products-service';
 
 const DetailProduct = () => {
     const dispatch = useDispatch();
-
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const prodId = queryParams.get('idprod');
