@@ -3,15 +3,10 @@ import classes from "./MyProductsPage.module.css";
 import Header from "../UI/Header";
 import Footer from "../UI/Footer";
 import { useHistory } from 'react-router';
-// import { useSelector } from 'react-redux';
 import { fetchProductsProfileLogged } from '../../services/products-service';
 
 const MyProductsPage = () => {
     const history = useHistory();
-    // const products = useSelector((state) => state.auth.value.profileData.products);
-    // console.log(products);
-    // const idProfileLogged = useSelector((state) => state.auth.value.profileData.idProfile);
-    // console.log(idProfileLogged);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -55,8 +50,8 @@ const MyProductsPage = () => {
                             return (
                                 <tr className={classes.productitm} key={product.idProduct}>
                                     <td><img src={product.img} className={classes.thumb} alt="img cart"/></td>
-                                    <td><input type="number" defaultValue="1" min="0" max="99" className={classes.qtyinput} /></td>
-                                    <td>{product.nameProd}</td>
+                                    <td><input type="number" defaultValue={product.quantity} min="0" max="99" className={classes.qtyinput} /></td>
+                                    <td>{product.name}</td>
                                     <td>$ {product.price}</td>
                                 </tr>)
                         })

@@ -97,6 +97,10 @@ h1 {
 .cart thead th.fifth {
   width: 20px;
 }
+.cart thead th.sixth {
+  padding-left: 15px;
+}
+
 
 .cart tbody td {
   text-align: center;
@@ -117,7 +121,7 @@ tr.productitm {
 }
 
 .qtyinput {
-  width: 33px;
+  width: 43px;
   height: 22px;
   border: 1px solid #a3b8d3;
   background: #dae4eb;
