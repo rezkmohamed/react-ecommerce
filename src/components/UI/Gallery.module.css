@@ -24,8 +24,17 @@
 
 .gallery img {
   width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  float: right;
 }
 
 .gallery img:hover {
   opacity: 0.5;
+}
+
+.product-info {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(44, 42, 42);
 }
