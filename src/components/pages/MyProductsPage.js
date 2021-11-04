@@ -54,7 +54,7 @@ const MyProductsPage = () => {
                         products.map(product => {
                             return (
                                 <tr className={classes.productitm}>
-                                    <td><img src={product.imgProd} className={classes.thumb} alt="img cart"/></td>
+                                    <td><img src={product.img} className={classes.thumb} alt="img cart"/></td>
                                     <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                                     <td>{product.nameProd}</td>
                                     <td>$ {product.price}</td>

@@ -27,12 +27,12 @@ const Header = () => {
             <header className={classes.container}>
                 <div className={classes['nav-bar']}>
                     <div className={classes['nav-belt']}>
-                        <div class={classes['nav-left']}>
+                        <div className={classes['nav-left']}>
                             <div className={classes['nav-logo']}>
                                 <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>FakeAzon</Link>
                             </div>
                         </div>
-                        <div class={classes['nav-fill']}>
+                        <div className={classes['nav-fill']}>
                             <div className={classes['nav-search']}>
                                 <form className={classes['nav-search-bar-form']}>
                                     <div className={classes['nav-left']}>

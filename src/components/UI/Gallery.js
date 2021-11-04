@@ -6,7 +6,7 @@ const Gallery = ({products, isLoading}) => {
     console.log(products);
     return (
         <React.Fragment>
-        <body>
+        <section>
             <div className={classes.container}>
             <div className={classes.gallery}>
                 {
@@ -17,10 +17,9 @@ const Gallery = ({products, isLoading}) => {
                     !isLoading && 
                     products.map(prod => {
                         return (
-                            <div>
+                            <div key={prod.idProduct}>
                                 <Link
                                 to={`/detail/?idprod=${prod.idProduct}`}
-                                key={prod.idProduct}
                                 data-lightbox="models"
                                 data-title="Caption1"
                                 >
@@ -40,7 +39,7 @@ const Gallery = ({products, isLoading}) => {
                 }
             </div>
             </div>
-        </body>
+        </section>
         </React.Fragment>
     );
 }
