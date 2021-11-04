@@ -11,6 +11,7 @@ import store from './services/index-redux';
 import CartPage from './components/pages/CartPage';
 import SearchPage from './components/pages/SearchPage';
 import MyProductsPage from './components/pages/MyProductsPage';
+import About from './components/pages/About';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/cart" exact component={CartPage} />
         <Route path="/search" exact component={SearchPage} />
         <Route path="/myprods" exact component={MyProductsPage} />
+        <Route path="/about" exact component={About} />
       </Provider>
     </React.Fragment>
   );

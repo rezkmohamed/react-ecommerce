@@ -67,7 +67,7 @@ const Header = () => {
                                 }
                                 {
                                     !isLoggedIn.isVendor &&
-                                    <Link to="/" style={{ color: 'white', textDecoration: 'inherit' }}>About</Link>
+                                    <Link to="/about" style={{ color: 'white', textDecoration: 'inherit' }}>About</Link>
                                 }
                             </div>
                         </div>

@@ -5,7 +5,7 @@ import classes from "./CartPage.module.css";
 import { cartActions } from '../../services/cart-slice';
 import { useDispatch, useSelector } from 'react-redux';
 
-const CartPage = (props) => {
+const CartPage = () => {
     const dispatch = useDispatch();
     const cartProducts = useSelector((state) => state.cart.value.products);
     console.log(cartProducts);
