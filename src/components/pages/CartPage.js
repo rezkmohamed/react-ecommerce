@@ -4,6 +4,7 @@ import Header from '../UI/Header';
 import classes from "./CartPage.module.css";
 import { cartActions } from '../../services/cart-slice';
 import { useDispatch, useSelector } from 'react-redux';
+import { shopProducts } from '../../services/products-service';
 
 const CartPage = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,10 @@ const CartPage = () => {
     console.log(cartProducts);
 
     const finishShop = () => {
-        dispatch(cartActions.finishBuying());
+        // dispatch(cartActions.finishBuying());
+        console.log(cartProducts);
+
+
         window.alert('ACQUISTO TERMINATO');
     };
 
