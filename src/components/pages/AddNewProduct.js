@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import Footer from '../UI/Footer';
 import Header from '../UI/Header';
 import classes from "./AddNewProduct.module.css";
-// import { productsVendorActions } from '../../services/products-vendor-slice';
 import { addProduct } from '../../services/products-service';
 
 const AddNewProduct = (props) => {
@@ -11,9 +10,9 @@ const AddNewProduct = (props) => {
     const categoryProd = useRef();
     const imgProd = useRef();
     const price = useRef();
+    const quantity = useRef();
     const idProfile = useSelector((state) => state.auth.value.profileData.idProfile);
 
-    // const dispatch = useDispatch();
 
     const onAddNewProduct = (event) => {
         event.preventDefault();
@@ -21,13 +20,15 @@ const AddNewProduct = (props) => {
         const categoryProdCurr = categoryProd.current.value;
         const imgProdCurr = imgProd.current.value;
         const priceCurr = price.current.value;
+        const quantityCurr = quantity.current.value;
 
         addProduct({
             name: nameProdCurr,
             category: categoryProdCurr,
             img: imgProdCurr,
             price: priceCurr,
-            idProfile: idProfile
+            idProfile: idProfile,
+            quantity: quantityCurr
         }).then(res => {
             if(res){
                 window.alert('PRODOTTO AGGIUNTO! BRAVO.');
@@ -35,14 +36,6 @@ const AddNewProduct = (props) => {
         }).catch(err => {
             window.alert('ERRORE: ' + err.message);
         })
-
-
-        // dispatch(productsVendorActions.addNewProduct({
-        //     nameProd: nameProdCurr,
-        //     categoryProd: categoryProdCurr,
-        //     imgProd: imgProdCurr,
-        //     price: priceCurr
-        // }));
     };
 
     return (
@@ -85,6 +78,14 @@ const AddNewProduct = (props) => {
                     required />
                 </div>
 
+                <div className="form-group">
+                <label id="quantity">Quantità</label>
+                <input className="form-control"
+                    type="number" 
+                    name="quantity"
+                    ref={quantity}
+                    required />
+                </div>
 
                 <button className={`btn btn-primary ${classes.btn}`}>Aggiungi prodotto</button>
             </form>
