@@ -15,6 +15,10 @@ const CartPage = (props) => {
         window.alert('ACQUISTO TERMINATO');
     };
 
+    const onRemoveProduct = (idProd) => {
+        dispatch(cartActions.removeProductFromCart(idProd));
+    };
+
     return (
         <React.Fragment>
             <Header />
@@ -30,17 +34,19 @@ const CartPage = (props) => {
                         <th className={classes.second}>Qty</th>
                         <th className={classes.third}>Name</th>
                         <th className={classes.fifth}>Price</th>
+                        <th className={classes.sixth}>Remove</th>
                     </tr>
                     </thead>
                     <tbody>
                     {
                         cartProducts.map(product => {
                             return (
-                                <tr className={classes.productitm}>
-                                    <td><img src={product.main_img} className={classes.thumb} alt="img cart"/></td>
+                                <tr className={classes.productitm} key ={product.idProduct}>
+                                    <td><img src={product.img} className={classes.thumb} alt="img cart"/></td>
                                     <td><input type="number" value="1" min="0" max="99" className={classes.qtyinput} /></td>
                                     <td>{product.product_title}</td>
                                     <td>$ {product.price}</td>
+                                    <td><button className="btn btn-primary" onClick={() => onRemoveProduct(product.idProduct)}>X</button></td>
                                 </tr>)
                         })
                     }

@@ -28,7 +28,27 @@ const cartSlice = createSlice({
             localStorage.setItem('cart', JSON.stringify(state.value.products));
         },
         removeProductFromCart: (state, action) => {
+            const storageProducts = JSON.parse(localStorage.getItem('cart'));
             
+            
+
+
+            const indx = storageProducts.findIndex((prod) => {
+                return prod.idProduct === action.payload;
+            });
+            console.log(indx);
+            if(indx >= 0){
+                storageProducts.splice(indx, 1);
+                state.value.products = storageProducts;
+                state.value.totalProducts--;
+                state.value.totalPrice = storageProducts.reduce((prevProd, curProd) => {
+                    return prevProd.price + curProd.price;
+                });
+                localStorage.setItem('cart', JSON.stringify(storageProducts));
+                window.alert('PRODOTTO RIMOSSO DAL CARRELLO');
+            } else {
+                window.alert('ERRORE NELLA RIMOZIONE DEL PRODOTTO!');
+            }
         },
         finishBuying: (state) => {
             state.value = initialStateValue;
