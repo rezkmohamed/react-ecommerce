@@ -32,6 +32,7 @@ const DetailProduct = () => {
     }, [prodId]);
 
     const addToCart = () => {
+        product.quantity = 1;
         dispatch(cartActions.addProductToCart(product));
         window.alert('PRODOTTO AGGIUNTO AL CARRELLO');
     };

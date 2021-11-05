@@ -12,9 +12,18 @@ const CartPage = () => {
     console.log(cartProducts);
 
     const finishShop = () => {
-        // dispatch(cartActions.finishBuying());
         console.log(cartProducts);
-
+        shopProducts(cartProducts)
+        .then(res => {
+            if(res){
+                window.alert('OKKAAAY!!! bravo, shop terminato');
+                dispatch(cartActions.finishBuying());
+            } else {
+                window.alert(':((((((');
+            }
+        }).catch(err => {
+            window.alert("ERRROOORR::::  " + err.message);
+        });
 
         window.alert('ACQUISTO TERMINATO');
     };
@@ -50,7 +59,7 @@ const CartPage = () => {
                                     <td><input type="number" defaultValue="1" min="0" max="99" className={classes.qtyinput} /></td>
                                     <td>{product.product_title}</td>
                                     <td>$ {product.price}</td>
-                                    <td><button className="btn btn-primary" onClick={() => onRemoveProduct(product.idProduct)}>X</button></td>
+                                    <td><button className="btn btn-danger" onClick={() => onRemoveProduct(product.idProduct)}>X</button></td>
                                 </tr>)
                         })
                     }
